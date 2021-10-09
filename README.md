@@ -1,3 +1,6 @@
 # Custom Join Messages
 Make custom join & quit messages for Minecraft Spigot!
-# Resource Link
+# Spigot Page
+
+# LICENSE
+This project is under MIT License.
