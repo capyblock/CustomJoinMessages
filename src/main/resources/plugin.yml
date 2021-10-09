@@ -4,7 +4,7 @@ main: me.dodo.customjoinmessages.CustomJoinMessages
 api-version: 1.17
 prefix: CustomJoinMessages
 authors: [ dodo ]
-description: A plugin that allows you to edit join messages.
+description: Make custom join & quit messages.
 website: https://github.com/customjoinmessages
 softdepend:
   - PlaceholderAPI
