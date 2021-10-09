@@ -1,0 +1,15 @@
+joinmessages:
+  # Turns off all join messages on the server include the defaults.
+  disable: false
+  firstjoin:
+    - "&a%player_displayname% is new!"
+    - "&b Second line"
+  messages:
+    - "&a%player_displayname% joined the server!"
+    - "&bSecond line"
+quitmessages:
+  # Turns off all quit messages on the server include the defaults.
+  disable: false
+  messages:
+    - "&c%player_displayname% left the server.."
+    - "&bSecond line"

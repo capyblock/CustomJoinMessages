@@ -1,0 +1,10 @@
+name: CustomJoinMessages
+version: '${project.version}'
+main: me.dodo.customjoinmessages.CustomJoinMessages
+api-version: 1.17
+prefix: CustomJoinMessages
+authors: [ dodo ]
+description: A plugin that allows you to edit join messages.
+website: https://github.com/customjoinmessages
+softdepend:
+  - PlaceholderAPI
