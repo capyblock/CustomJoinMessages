@@ -6,7 +6,7 @@
 
     <groupId>me.dodo</groupId>
     <artifactId>customjoinmessages</artifactId>
-    <version>1.0.1</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>CustomJoinMessages</name>
