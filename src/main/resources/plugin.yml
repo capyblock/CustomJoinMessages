@@ -1,7 +1,6 @@
 name: CustomJoinMessages
 version: '${project.version}'
 main: me.dodo.customjoinmessages.CustomJoinMessages
-api-version: 1.17
 prefix: CustomJoinMessages
 authors: [ dodo ]
 description: Make custom join & quit messages.

@@ -1,5 +1,4 @@
 package me.dodo.customjoinmessages.events;
-
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.dodo.customjoinmessages.CustomJoinMessages;
 import org.bukkit.ChatColor;
