@@ -16,7 +16,7 @@ public class PlayerJoin implements Listener {
         }
 
         if (!CustomJoinMessages.firstJoinDisable)
-            if (event.getPlayer().hasPlayedBefore()) {
+            if (!event.getPlayer().hasPlayedBefore()) {
                 if (CustomJoinMessages.PAPI)
                     event.setJoinMessage(
                             PlaceholderAPI.setPlaceholders(event.getPlayer(),
