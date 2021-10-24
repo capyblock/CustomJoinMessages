@@ -10,7 +10,7 @@ public class QuitMessages implements Main {
     private final ConfigurationSection configurationSection;
 
     public QuitMessages(YamlConfiguration yamlConfiguration) {
-        configurationSection = yamlConfiguration.getConfigurationSection("quitmesssages");
+        configurationSection = yamlConfiguration.getConfigurationSection("quitmessages");
     }
 
     @Override
