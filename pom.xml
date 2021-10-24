@@ -6,7 +6,7 @@
 
     <groupId>me.dodo</groupId>
     <artifactId>customjoinmessages</artifactId>
-    <version>1.1.1</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>CustomJoinMessages</name>
@@ -81,6 +81,11 @@
             <artifactId>placeholderapi</artifactId>
             <version>2.10.10</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
         </dependency>
     </dependencies>
 </project>
