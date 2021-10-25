@@ -13,7 +13,7 @@ public final class CustomJoinMessages extends JavaPlugin {
     public void onEnable() {
         ConfigManager configManager = new ConfigManager(this);
         configManager.loadConfig();
-        if (!configManager.getJoinMessages().isDisabled() && !configManager.getQuitMessages().isDisabled())
+        if (!configManager.getJoinMessages().isEnabled() && !configManager.getQuitMessages().isEnabled())
             if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
                 isPapiEnabled = true;
                 getLogger().info("PlaceHolderAPI found!");

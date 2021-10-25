@@ -20,7 +20,7 @@ public class PlayerQuit implements Listener {
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
-        if (config.isDisabled()) {
+        if (!config.isEnabled()) {
             event.setQuitMessage(null);
             return;
         }

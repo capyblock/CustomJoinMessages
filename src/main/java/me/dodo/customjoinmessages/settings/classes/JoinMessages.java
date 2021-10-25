@@ -21,8 +21,8 @@ public class JoinMessages implements Main, FirstJoin, Messages {
     }
 
     @Override
-    public boolean isFirstJoinDisabled() {
-        return firstJoinSection.getBoolean("disable");
+    public boolean isFirstJoinEnabled() {
+        return firstJoinSection.getBoolean("enabled");
     }
 
     @Override
@@ -31,13 +31,13 @@ public class JoinMessages implements Main, FirstJoin, Messages {
     }
 
     @Override
-    public boolean isDisabled() {
-        return mainSection.getBoolean("disable");
+    public boolean isEnabled() {
+        return mainSection.getBoolean("enabled");
     }
 
     @Override
-    public boolean isMessagesDisabled() {
-        return messagesSection.getBoolean("disable");
+    public boolean isMessagesEnabled() {
+        return messagesSection.getBoolean("enabled");
     }
 
     @Override

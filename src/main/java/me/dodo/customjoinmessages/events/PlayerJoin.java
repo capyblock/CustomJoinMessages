@@ -21,12 +21,12 @@ public class PlayerJoin implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        if (config.isDisabled()) {
+        if (!config.isEnabled()) {
             event.setJoinMessage(null);
             return;
         }
 
-        if (!config.isFirstJoinDisabled()) {
+        if (config.isFirstJoinEnabled()) {
             if (!event.getPlayer().hasPlayedBefore()) {
                 event.setJoinMessage(MessageModifier.getText(event.getPlayer(), firstJoinMessage));
                 return;
@@ -34,7 +34,7 @@ public class PlayerJoin implements Listener {
         }
 
 
-        if (!config.isMessagesDisabled())
+        if (config.isMessagesEnabled())
             event.setJoinMessage(MessageModifier.getText(event.getPlayer(), normalMessage));
         else
             event.setJoinMessage(null);

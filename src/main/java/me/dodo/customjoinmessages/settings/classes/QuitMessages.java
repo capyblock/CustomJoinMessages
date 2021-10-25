@@ -14,8 +14,8 @@ public class QuitMessages implements Main {
     }
 
     @Override
-    public boolean isDisabled() {
-        return configurationSection.getBoolean("disable");
+    public boolean isEnabled() {
+        return configurationSection.getBoolean("enabled");
     }
 
     @Override
