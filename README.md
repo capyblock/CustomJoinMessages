@@ -1,6 +1,6 @@
 # Custom Join Messages
 
-Make custom join & quit messages for Minecraft Spigot!
+Make custom join & quit messages for minecraft spigot based servers!
 
 # LICENSE
 
