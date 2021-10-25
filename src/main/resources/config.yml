@@ -1,23 +1,23 @@
 joinmessages:
-  # Turns off all join messages on the server include the defaults.
-  disable: false
+  # If you disable this is turns off all join messages on the server included the defaults.
+  enabled: true
   firstjoin:
-    # Turns off first join messages and sends normal join messages.
-    disable: false
+    # If you disable this is turns off first join messages and sends normal join messages.
+    enabled: true
     # You can add infinite layer of messages
     context:
       - "&a%player_displayname% is new!"
       - "&b Second line"
   messages:
-    # Turns off join messages.
-    disable: false
+    # If you disable this is turns off all join messages on the server included the defaults.
+    enabled: true
     # You can add infinite layer of messages
     context:
       - "&a%player_displayname% joined the server!"
       - "&bSecond line"
 quitmessages:
-  # Turns off all quit messages on the server include the defaults.
-  disable: false
+  # If you disable this is turns off all quit messages on the server included the defaults.
+  enabled: true
   # You can add infinite layer of messages
   messages:
     - "&c%player_displayname% left the server.."

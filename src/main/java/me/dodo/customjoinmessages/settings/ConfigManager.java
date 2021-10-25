@@ -10,12 +10,12 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
 
-public class ConfigManager{
-    private JoinMessages joinMessages;
-    private QuitMessages quitMessages;
+public class ConfigManager {
     private final File configFile;
     private final File configDirectory;
     private final JavaPlugin javaPlugin;
+    private JoinMessages joinMessages;
+    private QuitMessages quitMessages;
 
     public ConfigManager(JavaPlugin javaPlugin) {
         this.javaPlugin = javaPlugin;
@@ -64,5 +64,8 @@ public class ConfigManager{
     public JoinMessages getJoinMessages() {
         return joinMessages;
     }
-    public QuitMessages getQuitMessages() { return  quitMessages; }
+
+    public QuitMessages getQuitMessages() {
+        return quitMessages;
+    }
 }

@@ -4,5 +4,6 @@ import java.util.List;
 
 public interface Messages {
     boolean isMessagesDisabled();
+
     List<String> getMessagesContext();
 }

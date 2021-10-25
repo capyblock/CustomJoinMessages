@@ -7,21 +7,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class CustomJoinMessages extends JavaPlugin {
-    public static boolean PAPI = false;
-    private static ConfigManager configManager;
+    public static boolean isPapiEnabled = false;
 
     @Override
     public void onEnable() {
-        configManager = new ConfigManager(this);
+        ConfigManager configManager = new ConfigManager(this);
         configManager.loadConfig();
-        if (configManager.getJoinMessages().isDisabled() && configManager.getQuitMessages().isDisabled())
-            if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null)
-                PAPI = true;
-        getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
-        getServer().getPluginManager().registerEvents(new PlayerQuit(), this);
-    }
-
-    public static ConfigManager getConfigManager() {
-        return configManager;
+        if (!configManager.getJoinMessages().isDisabled() && !configManager.getQuitMessages().isDisabled())
+            if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+                isPapiEnabled = true;
+                getLogger().info("PlaceHolderAPI found!");
+            }
+        getServer().getPluginManager().registerEvents(new PlayerJoin(configManager), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuit(configManager), this);
     }
 }
