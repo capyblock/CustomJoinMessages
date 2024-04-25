@@ -2,17 +2,17 @@ package me.dodo.customjoinmessages.settings;
 
 import me.dodo.customjoinmessages.settings.classes.JoinMessages;
 import me.dodo.customjoinmessages.settings.classes.QuitMessages;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.*;
+import java.nio.file.*;
+import java.nio.charset.StandardCharsets;
 
 public class ConfigManager {
     private final File configFile;
-    private final File configDirectory;
+    private final Path configDirectoryPath;
     private final JavaPlugin javaPlugin;
     private JoinMessages joinMessages;
     private QuitMessages quitMessages;
@@ -21,7 +21,7 @@ public class ConfigManager {
         this.javaPlugin = javaPlugin;
 
         this.configFile = new File(this.javaPlugin.getDataFolder(), "config.yml");
-        this.configDirectory = new File(this.javaPlugin.getDataFolder().getPath());
+        this.configDirectoryPath = this.javaPlugin.getDataFolder().toPath();
     }
 
     public void loadConfig() {
@@ -30,7 +30,7 @@ public class ConfigManager {
 
         try {
             YamlConfiguration yamlConfiguration = new YamlConfiguration();
-            yamlConfiguration.loadFromString(FileUtils.readFileToString(this.configFile, "UTF-8"));
+            yamlConfiguration.loadFromString(new String(Files.readAllBytes(this.configFile.toPath()), StandardCharsets.UTF_8));
 
             joinMessages = new JoinMessages(yamlConfiguration);
             quitMessages = new QuitMessages(yamlConfiguration);
@@ -41,21 +41,18 @@ public class ConfigManager {
 
     private void writeDefaultConfig() {
         this.javaPlugin.getLogger().info("Creating the default config.");
-        InputStream inputStream = this.javaPlugin.getResource("config.yml");
-        if (this.configDirectory.mkdirs()) {
-            this.javaPlugin.getLogger().info("Created the plugin directory.");
-        }
-        try {
-            if (this.configFile.createNewFile()) {
+        try (InputStream inputStream = this.javaPlugin.getResource("config.yml")) {
+            if (!Files.exists(configDirectoryPath)) {
+                Files.createDirectories(configDirectoryPath);
+                this.javaPlugin.getLogger().info("Created the plugin directory.");
+            }
+            if (!Files.exists(configFile.toPath())) {
+                Files.createFile(configFile.toPath());
                 this.javaPlugin.getLogger().info("Created the default config.");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
-        }
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(this.configFile))) {
-            assert inputStream != null;
-            IOUtils.copy(inputStream, bufferedWriter, "UTF-8");
+            if (inputStream != null) {
+                Files.copy(inputStream, this.configFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
